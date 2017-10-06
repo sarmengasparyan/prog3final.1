@@ -44,21 +44,29 @@ function drawPieChart() {
     });
 }
 
+var uniqueDate = [];
+var date = {};
 function drawColumnChart() {
     $.ajax({
         url: "/bajin",
         dataType: "json",
         success: function (jsonData) {
             var data = new google.visualization.DataTable();
-            data.addColumn('string', 'caytegory');
+            data.addColumn('string', 'date');
             data.addColumn('number', 'count');
             
+            for (var i = 0; i < jsonData.length; i++) {
+                uniqueDate.push(jsonData[i].time);
+            }
+
             
-            Object.keys(count).forEach(function (key) {
+            uniqueDate.forEach(function (i) { date[i] = (date[i] || 0) + 1; });
+
+            Object.keys(date).forEach(function (key) {
                 
-                data.addRow([key, count[key]]);
+                data.addRow([key, date[key]]);
             });
-            
+ 
 
             var options = {
                 colors:["red"],

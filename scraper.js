@@ -49,12 +49,12 @@ function sc(page_number, num) {
                     convert: function (x) {
                         var y = x.split(" ")[3]
                         var z = x.split(" ")[4];
-                        var k = x.split(" ")[2];
+                        //var k = x.split(" ")[2];
 
 
 
                         var arr = [];
-                        arr.push(z, k, y);
+                        arr.push(z, y);
                         console.log(arr);
                         return arr;
                     }
