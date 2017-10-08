@@ -56,7 +56,8 @@ function drawColumnChart() {
             data.addColumn('number', 'count');
             
             for (var i = 0; i < jsonData.length; i++) {
-                uniqueDate.push(jsonData[i].time);
+                uniqueDate.push(jsonData[i].time[2]);
+                
             }
 
             
